@@ -4,26 +4,25 @@ import { getCharacterRequest } from "../lib/api/get-character-request";
 
 export const useCharacters = () => {
   const [loading, setLoading] = useState(true);
-  const [CharacterListError, setCharacterListError] = useState("");
+  const [characterListError, setCharacterListError] = useState("");
 
   const getCharacters = async () => {
     try {
-      const CharacterResponse = await getCharactersRequest();
+      const characterResponse = await getCharactersRequest();
       setLoading(false);
-      console.log(CharacterResponse);
-      return CharacterResponse;
+      console.log(characterResponse)
+      return characterResponse;
     } catch (error) {
       setCharacterListError(error);
-      console.log(CharacterListError);
       setLoading(false);
     }
   };
 
   const getCharacter = async (url) => {
     try {
-      const CharacterResponse = await getCharacterRequest(url);
+      const characterResponse = await getCharacterRequest(url);
       setLoading(false);
-      return CharacterResponse;
+      return characterResponse;
     } catch (error) {
       setCharacterListError(error);
       setLoading(false);
@@ -34,6 +33,6 @@ export const useCharacters = () => {
     getCharacters,
     getCharacter,
     loading,
-    CharacterListError,
+    characterListError,
   };
 };
