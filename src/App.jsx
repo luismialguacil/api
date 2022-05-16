@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 
-//Request
-
 //Style
 import "./App.css";
 
 //Components
 import Header from "./containers/Header/Header";
+import Footer from "./containers/footer/Footer";
+
+
+
 //Hooks
 import { useCharacters } from "./services/character-services";
 import CharacterList from "./containers/CharacterList/CharacterList";
 
+
+
 function App() {
   const characterService = useCharacters();
-  const [characterList, setCharacterList] = useState([]);
+  const [characters, setCharacterList] = useState([]);
+
 
   useEffect(() => {
     const getCharacterList = async () => {
@@ -24,14 +29,14 @@ function App() {
     getCharacterList();
   }, []);
 
+  
+
 
   return (
     <>
       <Header></Header>
-     
-      <section>
-        <CharacterList></CharacterList>
-      </section>
+      <CharacterList characters={characters}></CharacterList>
+      <Footer></Footer>
     </>
   );
 }

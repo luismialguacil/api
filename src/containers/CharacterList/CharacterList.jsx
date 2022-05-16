@@ -4,17 +4,11 @@ import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import CharacterListContainer from "./CharacterList-style";
 
 const CharacterList = ({characters = []}) => {
-    return (
-        
-            <CharacterListContainer className="row">
-                {characters.map((index) => {
-                   <CharacterCard key={index} className="col">
-                       
-                   </CharacterCard>
-                })}
-            </CharacterListContainer>
-        
-    );
+    return(
+        <div className="container">
+            <CharacterCard characters={characters}></CharacterCard>
+        </div>
+    )
 };
 
 export default CharacterList;

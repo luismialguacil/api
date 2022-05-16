@@ -4,14 +4,15 @@ import { getCharacterRequest } from "../lib/api/get-character-request";
 
 export const useCharacters = () => {
   const [loading, setLoading] = useState(true);
-  const [characterListError, setCharacterListError] = useState("");
+  const [characterListError, setCharacterListError] = useState([]);
 
   const getCharacters = async () => {
     try {
       const characterResponse = await getCharactersRequest();
       setLoading(false);
-      console.log(characterResponse)
+      console.log(characterResponse.data.results)
       return characterResponse;
+      
     } catch (error) {
       setCharacterListError(error);
       setLoading(false);
