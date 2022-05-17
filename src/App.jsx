@@ -8,6 +8,7 @@ import Header from "./containers/Header/Header";
 import Footer from "./containers/footer/Footer";
 import FiltersBar from "./containers/Filters/Filters";
 import Pagination from "./components/pagination/Pagination";
+import Search from "./components/SearchBar/SearchBar";
 
 
 
@@ -22,25 +23,56 @@ function App() {
   const [characters, setCharacterList] = useState([]);
 
 
-  useEffect(() => {
-    const getCharacterList = async () => {
-      const characters = await characterService.getCharacters();
-      const { results } = await characters.data;
-      setCharacterList(results);
-    }
-    getCharacterList();
-  }, []);
+  // useEffect(() => {
+  //   const getCharacterList = async () => {
+  //     const characters = await characterService.getCharacters();
+  //     const { results } = await characters.data;
+  //     setCharacterList(results);
+  //   }
+  //   getCharacterList();
+  // }, []);
 
   
+  const [pageNumber, updatePageNumber] = useState(1);
+  const [status, updateStatus] = useState("");
+  const [gender, updateGender] = useState("");
+  const [species, updateSpecies] = useState("");
+  const [fetchedData, updateFetchedData] = useState([]);
+  const [search, setSearch] = useState("");
+  const { info, results } = fetchedData;
 
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
+
+  useEffect(() => {
+    // const getCharacterList = async () => {
+      //     const characters = await characterService.getCharacters();
+      //     const { results } = await characters.data;
+      //     setCharacterList(results);
+      //   }
+      //   getCharacterList();
+    (async function () {
+      const data = await fetch(api).then((res) => res.json());
+      updateFetchedData(data);
+    })();
+  }, [api]);
 
   return (
     <>
       <Header></Header>
-      <FiltersBar />
-      <Pagination></Pagination>
-      <CharacterList characters={characters}></CharacterList>
-      <Pagination></Pagination>
+      <div className="container">
+      <Search setSearch={setSearch} updatePageNumber={updatePageNumber}></Search>
+      </div>
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        updatePageNumber={updatePageNumber}
+      />
+      <CharacterList characters={results}></CharacterList>
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        updatePageNumber={updatePageNumber}
+      />
       <Footer></Footer>
     </>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SearchStyle = styled.div`
+const SearchStyle = styled.form`
     background-color:none;
     color:white;
     border-bottom: 1px solid white;
@@ -22,9 +22,19 @@ const SearchStyle = styled.div`
             border:none;
             outline:none;
         }
+        
+    }
+    button{
+        background-color:#00353E !important;
+        border: none;
+        &:focus{
+            border:none;
+            outline:none;
+        }
     }
     i{
-        margin-left:20px;
+        margin-left:10px;
+        color:white;
     }
 `
 
