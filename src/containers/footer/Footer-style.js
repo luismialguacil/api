@@ -6,17 +6,22 @@ const FooterContainer = styled.footer`
     text-align: center;
     align-items: center;
     background-color: #00B5CC;
-    margin-top: 100px;
+    margin-top: 50px;
     a{
         color:white;
         text-decoration:none;
-        margin: 30px;
+        margin: 20px;
         &:hover{
             color:#00353E;
         }
     }
     div.row{
         margin: 50px;
+    }
+    .col{
+        display: flex;
+        justify-content:center;
+        align-items:center;
     }
 `
 

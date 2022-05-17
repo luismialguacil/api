@@ -12,7 +12,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col">
+                    <div className="col flex-column flex-md-row">
                         <a href="#">Home</a>
                         <a href="#">Characters</a>
                         <a href="#">Tell Us</a>

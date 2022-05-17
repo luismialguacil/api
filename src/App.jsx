@@ -6,6 +6,8 @@ import "./App.css";
 //Components
 import Header from "./containers/Header/Header";
 import Footer from "./containers/footer/Footer";
+import FiltersBar from "./containers/Filters/Filters";
+import Pagination from "./components/pagination/Pagination";
 
 
 
@@ -35,7 +37,10 @@ function App() {
   return (
     <>
       <Header></Header>
+      <FiltersBar />
+      <Pagination></Pagination>
       <CharacterList characters={characters}></CharacterList>
+      <Pagination></Pagination>
       <Footer></Footer>
     </>
   );
