@@ -8,6 +8,7 @@ const SearchStyle = styled.form`
     justify-content: center;
     align-items: center;
     text-align: flex-end;
+    width: 80%;
     input{
         background-color:#00353E !important;
         color:white;

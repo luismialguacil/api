@@ -11,11 +11,29 @@ const HeaderContainer = styled.header`
     box-shadow:5px 0 10px #00353E;
     .nav-link{
         color: white;
-        margin-left: 20px;
+        margin-left: 20px !important;
         &:hover{
             color:#00353E;
         }     
     }
+    button{
+        padding:10px;
+        margin:0;
+        box-shadow:none;
+        border-radius:500px;
+
+    }
+    span{
+        color:white;
+        
+    }
+.navbar-toggler{
+    box-shadow: none !important;
+    &:hover{
+        background-color:#00353E;
+    } 
+    
+}
 `;
 
 export default HeaderContainer;

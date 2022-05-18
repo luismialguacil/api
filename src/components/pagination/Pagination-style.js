@@ -5,6 +5,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 margin: 40px 0;
+font-size:15px;
 .pagination{
     display:flex;
     justify-content:center;
@@ -12,7 +13,7 @@ margin: 40px 0;
 }
 a{
     color:white !important;
-    padding: 5px;
+    padding: 2px;
     text-decoration:none !important;
     
 }
@@ -26,8 +27,8 @@ li.item{
     justify-content:center;
     align-items: center;
     text-align:center;
-    width:40px;
-    line-height:50px
+    width:26px;
+    line-height:15px
     a{
         text-decoration: none;
         color:white;
@@ -52,7 +53,8 @@ li.prev, li.next{
     justify-content:center;
     align-items: center;
     text-align:center;
-    width:85px;
+    width:80px;
+    font-size:15px;
     a{
         text-decoration: none;
         color:white;

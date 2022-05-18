@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Style
 import "./App.css";
@@ -6,12 +7,12 @@ import "./App.css";
 //Components
 import Header from "./containers/Header/Header";
 import Footer from "./containers/footer/Footer";
-import FiltersBar from "./containers/Filters/Filters";
+
 import Pagination from "./components/pagination/Pagination";
 import Search from "./components/SearchBar/SearchBar";
-
-
-
+import Contact from "./Pages/Contact"
+import Character from "./Pages/Character";
+import Source from "./Pages/Source";
 //Hooks
 import { useCharacters } from "./services/character-services";
 import CharacterList from "./containers/CharacterList/CharacterList";
@@ -19,10 +20,25 @@ import CharacterList from "./containers/CharacterList/CharacterList";
 
 
 function App() {
-  const characterService = useCharacters();
-  const [characters, setCharacterList] = useState([]);
+  return(
+    <Router>
+      <div className="App">
+        <Header />
+      </div>
+      <Routes>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/Character" element={<Character />}></Route>
+      <Route path="/Contact" element={<Contact />}></Route>
+      <Route path="/Source" element={<Source />}></Route>
+      </Routes>
+    </Router>
+  )
+}
 
 
+const Home = ( ) => {
+  // const characterService = useCharacters();
+  // const [characters, setCharacterList] = useState([]);
   // useEffect(() => {
   //   const getCharacterList = async () => {
   //     const characters = await characterService.getCharacters();
@@ -31,8 +47,6 @@ function App() {
   //   }
   //   getCharacterList();
   // }, []);
-
-  
   const [pageNumber, updatePageNumber] = useState(1);
   const [status, updateStatus] = useState("");
   const [gender, updateGender] = useState("");
@@ -56,10 +70,11 @@ function App() {
     })();
   }, [api]);
 
+
   return (
-    <>
-      <Header></Header>
-      <div className="container">
+    <div className="App">
+      
+      <div className="container d-flex justify-content-center align-center">
       <Search setSearch={setSearch} updatePageNumber={updatePageNumber}></Search>
       </div>
       <Pagination
@@ -74,7 +89,7 @@ function App() {
         updatePageNumber={updatePageNumber}
       />
       <Footer></Footer>
-    </>
+    </div>
   );
 }
 

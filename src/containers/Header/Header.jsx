@@ -1,10 +1,11 @@
 import React from "react";
 import Logo from "../../components/Logo/Logo";
 import HeaderContainer from "./Header-style";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer className="sticky">
       <nav className="navbar navbar-expand-lg">
         <div className="container">
           <Logo />
@@ -17,22 +18,22 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="bi bi-list"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ms-auto">
-              <a className="nav-link active" aria-current="page" href="#">
+            <div className="navbar-nav ms-auto text-center">
+              <Link to="/" className="nav-link my-3 m-lg-0 active" aria-current="page">
                 Home
-              </a>
-              <a className="nav-link" href="#">
+              </Link>
+              <Link to="/Character" className="nav-link my-3 m-lg-0">
                 Characters
-              </a>
-              <a className="nav-link" href="#">
+              </Link>
+              <Link to="/Contact" className="nav-link my-3 m-lg-0">
                 Tell Us
-              </a>
-              <a className="nav-link" href="#">
+              </Link>
+              <Link to="/Source" className="nav-link my-3 m-lg-0">
                 Source
-              </a>
+              </Link>
             </div>
           </div>
         </div>
