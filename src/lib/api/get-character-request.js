@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getCharacterRequest = (url) => {
-    return axios(url, {
-        method: 'GET'
-    });
+  return axios(url, {
+    method: "GET",
+  });
 };

@@ -1,10 +1,6 @@
-
-
-
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import PaginationItem from "./Pagination-style";
-
 
 const Pagination = ({ pageNumber, info, updatePageNumber }) => {
   let pageChange = (data) => {

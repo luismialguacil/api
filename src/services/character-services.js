@@ -10,9 +10,8 @@ export const useCharacters = () => {
     try {
       const characterResponse = await getCharactersRequest();
       setLoading(false);
-      console.log(characterResponse.data.results)
+      console.log(characterResponse.data.results);
       return characterResponse;
-      
     } catch (error) {
       setCharacterListError(error);
       setLoading(false);

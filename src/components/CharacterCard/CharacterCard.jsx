@@ -25,7 +25,16 @@ const CharacterCard = ({ characters = [] }) => {
             >
               +
             </button>
-            <Modal id={`id${item.id}`} title={item.name} image={item.image} location={item.location.name} gender={item.gender} origin={item.origin.name} status={item.status} species={item.species}/>
+            <Modal
+              id={`id${item.id}`}
+              title={item.name}
+              image={item.image}
+              location={item.location.name}
+              gender={item.gender}
+              origin={item.origin.name}
+              status={item.status}
+              species={item.species}
+            />
           </div>
         </CharacterCardContainer>
       ))}

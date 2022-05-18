@@ -1,7 +1,16 @@
 import React from "react";
 import ModalContainer from "./Modal-style";
 
-const Modal = ({ id, title, location, gender, status, origin, image, species }) => {
+const Modal = ({
+  id,
+  title,
+  location,
+  gender,
+  status,
+  origin,
+  image,
+  species,
+}) => {
   return (
     <div
       className="modal fade"
@@ -26,13 +35,15 @@ const Modal = ({ id, title, location, gender, status, origin, image, species }) 
 
           <div className="modal-body">
             <div className="row">
-              <div className="col"><img src={image} alt={title} /></div>
+              <div className="col">
+                <img src={image} alt={title} />
+              </div>
               <div className="col info">
-              <span>Gender: {gender}</span>
-              <span>Race: {species}</span>
-              <span>Status: {status}</span>
-              <span>Origin: {origin}</span>
-              <span>Current location: {location}</span>
+                <span>Gender: {gender}</span>
+                <span>Race: {species}</span>
+                <span>Status: {status}</span>
+                <span>Origin: {origin}</span>
+                <span>Current location: {location}</span>
               </div>
             </div>
           </div>
